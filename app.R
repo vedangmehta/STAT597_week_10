@@ -2,6 +2,7 @@ library(shiny)
 library(tidyverse)
 library(tidycensus)
 
+
 ui <- fluidPage(sidebarLayout(
   sidebarPanel(
     # Input box to select the state
