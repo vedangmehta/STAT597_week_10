@@ -2,7 +2,6 @@ library(shiny)
 library(tidyverse)
 library(tidycensus)
 
-
 ui <- fluidPage(sidebarLayout(
   sidebarPanel(
     # Input box to select the state
@@ -120,8 +119,8 @@ server <- function(input, output, session) {
         ggplot(aes(fill = estimate, color = estimate)) +
         geom_sf() + scale_fill_gradient(low = "white", high = "#001344") + scale_color_gradient(low = "white", high = "#001344") +
         ggtitle("Median Gross Rent") + guides(
-          fill = guide_legend(title = "Median Rent"),
-          colour = guide_legend(title = "Median Rent")
+          fill = guide_legend(title = "Median Gross Rent"),
+          colour = guide_legend(title = "Median Gross Rent")
         ) + theme_bw()
     }
     else{
@@ -155,9 +154,9 @@ server <- function(input, output, session) {
       # Plotting the ratio of median rent and median income by county
       df_median_income %>% ggplot(aes(fill = Ratio, color = Ratio)) +
         geom_sf() + scale_fill_gradient(low = "white", high = "#440042") + scale_color_gradient(low = "white", high = "#440042") +
-        ggtitle("Ratio of Median Household Income and Median Rent") + guides(
-          fill = guide_legend(title = "Ratio of Median Household Income and Median Rent"),
-          colour = guide_legend(title = "Ratio of Median Household Income and Median Rent")
+        ggtitle("Ratio of Median Gross Rent to Median Household Income") + guides(
+          fill = guide_legend(title = "Ratio of Median Gross Rent to Median Household Income"),
+          colour = guide_legend(title = "Ratio of Median Gross Rent to Median Household Income")
         ) + theme_bw()
     }
   })
